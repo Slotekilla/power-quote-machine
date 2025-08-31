@@ -62,4 +62,4 @@ The app includes 20 standard quotes and 3 exclusive "Alpha Pack" quotes that are
 
 ## License
 
-ISC
+ISC# power-quote-machine
