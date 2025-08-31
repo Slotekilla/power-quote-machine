@@ -3,9 +3,11 @@
   "description": "Daily power quotes by Rok Meško. Share your strength.",
   "icon": "https://power-quote-machine.vercel.app/rok-mesko-icon-1024.png",
   "homeUrl": "https://power-quote-machine.vercel.app",
+{
   "accountAssociation": {
-    "header": "eyJmaWQiOjEzMTczMzIsInR5cG...",
-    "payload": "eyJkb21haW4iOiJwb3dlci1xdW90ZS1tYWNoaW5lLnZlcmNlbC5hcHAi...",
-    "signature": "MHg1ZWNjMmQ3YmJhMzhN..."
+    "header": "eyJmaWQiOjEzMTczMzIsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHhmMkRBMTI1Y2RCZGFjMGEyNTQ5QjEyYURkQWIyMGU1MzFCN2JiOWZjIn0",
+    "payload": "eyJkb21haW4iOiJwb3dlci1xdW90ZS1tYWNoaW5lLnZlcmNlbC5hcHAifQ",
+    "signature": "MHg1ZWNjMmQ3YmJhMzNhN2QyMWNhMTRhYzc1Y2ViYjNjMDUxYTcwZDEzODE2NjRhOGJlY2Q2Zjc1NzA3MGFhYmU4MzIzZTc3NDE2MTUwOWZkODEzMWU5ZmE3YmJhN2QzYmY3ODYxZGQ1ZWUxYTViOTBlNmM0ZTNiODgyZDQxN2FiMTFi"
+  }
   }
 }
