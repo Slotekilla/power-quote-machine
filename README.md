@@ -27,21 +27,48 @@ npm install
 npm run dev
 ```
 
-## Deployment
+## Deployment to Vercel
 
-1. Update the `.env.local` file with your domain:
+### Quick Deploy
 
-```
-NEXT_PUBLIC_BASE_URL=https://yourdomain.com
-```
+1. **Fork this repository** to your GitHub account
 
-2. Build and deploy to Vercel or Netlify:
+2. **Connect to Vercel:**
+   - Go to [vercel.com](https://vercel.com)
+   - Click "New Project"
+   - Import your forked repository
+   - Vercel will automatically detect it's a Next.js project
+
+3. **Set Environment Variables:**
+   - In Vercel dashboard, go to your project settings
+   - Add environment variable:
+     ```
+     NEXT_PUBLIC_BASE_URL=https://your-project-name.vercel.app
+     ```
+   - Replace `your-project-name` with your actual Vercel project name
+
+4. **Deploy:**
+   - Click "Deploy"
+   - Vercel will automatically build and deploy your app
+
+### Manual Deploy
 
 ```bash
-npm run build
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+
+# Set production environment variables
+vercel env add NEXT_PUBLIC_BASE_URL
 ```
 
-3. Test using Warpcast embed preview.
+### Post-Deployment
+
+1. Update the Farcaster manifest URLs in your code to use your actual domain
+2. Test using Warpcast embed preview
+3. Verify all API routes work correctly
 
 ## Farcaster Manifest
 

@@ -4,8 +4,8 @@ export async function GET() {
   const manifest = {
     name: 'Rok Meško – Power Quotes',
     description: 'Daily power quotes by Rok Meško. Share your strength.',
-    icon: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://yourdomain.com'}/icon.svg`,
-    homeUrl: process.env.NEXT_PUBLIC_BASE_URL || 'https://yourdomain.com',
+    icon: 'https://app.meskobrand.eu/rok-mesko-icon-1024.png',
+    homeUrl: 'https://app.meskobrand.eu',
   };
 
   return NextResponse.json(manifest);

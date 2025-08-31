@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-export default function SharePage() {
+function ShareContent() {
   const searchParams = useSearchParams();
   const [quote, setQuote] = useState<string>('');
   
@@ -35,5 +35,13 @@ export default function SharePage() {
         </a>
       </div>
     </div>
+  );
+}
+
+export default function SharePage() {
+  return (
+    <Suspense fallback={<div className="flex min-h-screen items-center justify-center">Loading...</div>}>
+      <ShareContent />
+    </Suspense>
   );
 }
