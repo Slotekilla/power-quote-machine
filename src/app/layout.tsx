@@ -36,27 +36,30 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-    <head>
-  {/* Farcaster Mini App meta */}
+   <head>
+  {/* Farcaster Mini App embed config */}
   <meta
     property="fc:miniapp"
-    content='{"version":"1","actions":[{"label":"Open","url":"https://quote.meskobrand.eu"}]}'
+    content='{
+      "version":"1",
+      "imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png",
+      "aspectRatio":"1200:800",
+      "button":{
+        "title":"Open",
+        "action":{"type":"open-url","url":"https://quote.meskobrand.eu"}
+      }
+    }'
   />
 
-  {/* Open Graph */}
-  <meta property="og:title" content="Rok Meško – Power Quotes" />
+  {/* OG/Twitter (pusti, če že imaš) */}
+  <meta property="og:title" content="Rok Meško — Power Quotes" />
   <meta property="og:description" content="Daily power quotes by Rok Meško. Share your strength." />
-  <meta property="og:url" content="https://quote.meskobrand.eu" />
   <meta property="og:image" content="https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="800" />
-
-  {/* Twitter fallback */}
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Rok Meško – Power Quotes" />
-  <meta name="twitter:description" content="Daily power quotes by Rok Meško. Share your strength." />
-  <meta name="twitter:image" content="https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png" />
 </head>
+
       <body>{children}</body>
     </html>
   );
