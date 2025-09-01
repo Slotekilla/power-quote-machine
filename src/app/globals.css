@@ -15,9 +15,9 @@ body{
   background: radial-gradient(circle at 50% -20%, #1b1b1b 0%, #0a0a0a 60%, #000 100%);
 }
 
-/* ===== EN SAM WRAPPER ZA CEL APP ===== */
+/* ===== EN SAM WRAPPER ZA CEL APP (kompaktna širina) ===== */
 .rm-wrap{
-  max-width: 420px;      /* KRI TIČNA omejitev širine za mini-app panel */
+  max-width: 420px;      /* ključna omejitev širine za mini-app panel */
   width: 100%;
   min-height: 100dvh;
   margin: 0 auto;
@@ -92,4 +92,3 @@ body{
 
 /* Assets never overflow */
 img, svg, video, canvas{ max-width:100%; height:auto; }
-
