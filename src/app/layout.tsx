@@ -65,12 +65,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const miniappContent = '{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=8","button":{"title":"Get Inspired","action":{"type":"launch_miniapp","name":"Power Quotes","url":"https://quote.meskobrand.eu"}}}';
   const frameContent = '{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=8","button":{"title":"Get Inspired","action":{"type":"launch_miniapp","name":"Power Quotes","url":"https://quote.meskobrand.eu"}}}';
 
+  const farcasterMetaTags = `
+    <meta property="fc:miniapp" content='${miniappContent}' />
+    <meta property="fc:frame" content='${frameContent}' />
+  `;
+
   return (
     <html lang="en">
-      <head>
-        <meta property="fc:miniapp" content={miniappContent} />
-        <meta property="fc:frame" content={frameContent} />
-      </head>
+      <head dangerouslySetInnerHTML={{ __html: farcasterMetaTags }} />
       <body className={inter.className}>
         {children}
         <Analytics />
