@@ -43,8 +43,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     content='{
       "version":"1",
       "imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png",
-      "aspectRatio": 1.5,
-      "button":{
+ "aspectRatio":"3:2",
+    "button":{
         "title":"Open",
         "action":{"type":"open-url","url":"https://quote.meskobrand.eu"}
       }
