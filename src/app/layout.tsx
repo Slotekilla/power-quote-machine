@@ -1,7 +1,7 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
-import "./globals.css";
-import MiniAppInit from "@/components/miniapp-init";
+import "../app/globals.css";
+import MiniAppInit from "../components/miniapp-init";
 
 export const metadata: Metadata = {
   title: "Rok Meško — Power Quotes",
@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Farcaster Mini App EMBED (mora biti tukaj, exactly JSON in quotes) */}
+        {/* Farcaster Mini App EMBED – točno ena vrstica, veljaven JSON */}
         <meta
           property="fc:miniapp"
           content='{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png","button":{"title":"Open","action":{"type":"open-url","url":"https://quote.meskobrand.eu/"}}}'
@@ -37,10 +37,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="twitter:card" content="summary_large_image" />
       </head>
       <body>
-        {/* skrij splash v Warpcastu */}
+        {/* skrije splash v Warpcastu */}
         <MiniAppInit />
-        {/* compact column za mini-app panel */}
-        <div className="miniapp-root">{children}</div>
+        {/* kompaktna širina za mini-app panel */}
+        <div className="rm-wrap">{children}</div>
       </body>
     </html>
   );
