@@ -54,7 +54,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {/* Init SDK (skrije splash in označi ready) */}
         <MiniAppInit />
-        {children}
+
+        {/* Wrapper za kompaktni layout */}
+        <div className="miniapp-root">
+          {children}
+        </div>
       </body>
     </html>
   );
