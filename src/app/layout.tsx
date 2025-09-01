@@ -29,11 +29,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Farcaster Mini App EMBED – točno ena vrstica, veljaven JSON */}
-        <meta
-          property="fc:miniapp"
-          content='{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png","button":{"title":"Open","action":{"type":"open-url","url":"https://quote.meskobrand.eu/"}}}'
-        />
         <meta name="twitter:card" content="summary_large_image" />
       </head>
       <body>
