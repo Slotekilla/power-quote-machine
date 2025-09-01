@@ -1,7 +1,7 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
-import MiniAppInit from "../components/miniapp-init"; // popravi pot, če imaš alias @/
+import MiniAppInit from "../components/miniapp-init"; // adjust if you use "@/..."
 
 export const metadata: Metadata = {
   title: "Rok Meško — Power Quotes",
@@ -29,11 +29,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   // Farcaster Mini App embed JSON (VALID)
   const fcMiniApp = JSON.stringify({
     version: "1",
-    imageUrl: "https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=5",
+    imageUrl: "https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=6",
+    aspectRatio: "3:2", // required format, not 1200:800 and not 1.5
     button: {
       title: "Open",
       action: {
-        type: "launch_miniapp",                // << ključni popravek (ne "open-url")
+        type: "launch_miniapp", // must be exactly this literal
         url: "https://quote.meskobrand.eu/",
       },
     },
@@ -42,17 +43,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Farcaster Mini App embed (oba formata za zanesljivost) */}
+        {/* Farcaster Mini App embed (add both to satisfy all parsers) */}
         <meta property="fc:miniapp" content={fcMiniApp} />
         <meta name="fc:miniapp" content={fcMiniApp} />
 
-        {/* Twitter / OG fallback (ne vpliva na validacijo, je pa prav) */}
+        {/* Optional social meta */}
         <meta name="twitter:card" content="summary_large_image" />
       </head>
       <body>
-        {/* skrije splash v Warpcastu */}
         <MiniAppInit />
-        {/* kompaktna širina za mini-app panel */}
         <div className="rm-wrap">{children}</div>
       </body>
     </html>
