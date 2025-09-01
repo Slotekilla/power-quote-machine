@@ -81,8 +81,42 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const miniappContent = JSON.stringify({
+    version: "1",
+    imageUrl: "https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=8",
+    button: {
+      title: "Get Inspired",
+      action: {
+        type: "launch_miniapp",
+        name: "Power Quotes",
+        url: "https://quote.meskobrand.eu",
+        splashImageUrl: "https://quote.meskobrand.eu/splash.png",
+        splashBackgroundColor: "#000000",
+      },
+    },
+  });
+
+  const frameContent = JSON.stringify({
+    version: "1",
+    imageUrl: "https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=8",
+    button: {
+      title: "Get Inspired",
+      action: {
+        type: "launch_frame",
+        name: "Power Quotes",
+        url: "https://quote.meskobrand.eu",
+        splashImageUrl: "https://quote.meskobrand.eu/splash.png",
+        splashBackgroundColor: "#000000",
+      },
+    },
+  });
+
   return (
     <html lang="en">
+      <head>
+        <meta name="fc:miniapp" content={miniappContent} />
+        <meta name="fc:frame" content={frameContent} />
+      </head>
       <body>
         <MiniAppInit />
         <div className="rm-wrap">{children}</div>
