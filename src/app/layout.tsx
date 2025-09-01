@@ -7,9 +7,6 @@ import { Analytics } from "@vercel/analytics/next";
 const inter = Inter({ subsets: ["latin"] });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const miniappContent = '{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=8","button":{"title":"Get Inspired","action":{"type":"launch_miniapp","name":"Power Quotes","url":"https://quote.meskobrand.eu"}}}';
-  const frameContent = '{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=8","button":{"title":"Get Inspired","action":{"type":"launch_miniapp","name":"Power Quotes","url":"https://quote.meskobrand.eu"}}}';
-
   return {
     title: "Rok Meško — Power Quotes",
     description: "Daily power quotes by Rok Meško. Share your strength.",
@@ -61,16 +58,19 @@ export async function generateMetadata(): Promise<Metadata> {
         { url: "/icon-1024.png", sizes: "1024x1024", type: "image/png" },
       ],
     },
-    other: {
-      'fc:miniapp': miniappContent,
-      'fc:frame': frameContent,
-    },
   };
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const miniappContent = '{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=8","button":{"title":"Get Inspired","action":{"type":"launch_miniapp","name":"Power Quotes","url":"https://quote.meskobrand.eu"}}}';
+  const frameContent = '{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=8","button":{"title":"Get Inspired","action":{"type":"launch_miniapp","name":"Power Quotes","url":"https://quote.meskobrand.eu"}}}';
+
   return (
     <html lang="en">
+      <head>
+        <meta property="fc:miniapp" content={miniappContent} />
+        <meta property="fc:frame" content={frameContent} />
+      </head>
       <body className={inter.className}>
         {children}
         <Analytics />
