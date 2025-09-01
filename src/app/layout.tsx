@@ -47,6 +47,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta 
           property="fc:miniapp" 
+          content='{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=8","button":{"title":"Get Inspired","action":{"type":"launch_miniapp","name":"Power Quotes","url":"https://quote.meskobrand.eu","splashImageUrl":"https://quote.meskobrand.eu/splash.png","splashBackgroundColor":"#000000"}}}'
+        />
+        <meta 
+          name="fc:miniapp" 
+          content='{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=8","button":{"title":"Get Inspired","action":{"type":"launch_miniapp","name":"Power Quotes","url":"https://quote.meskobrand.eu","splashImageUrl":"https://quote.meskobrand.eu/splash.png","splashBackgroundColor":"#000000"}}}'
+        />
+        <meta 
+          name="fc:frame" 
           content='{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=8","button":{"title":"Get Inspired","action":{"type":"launch_frame","name":"Power Quotes","url":"https://quote.meskobrand.eu","splashImageUrl":"https://quote.meskobrand.eu/splash.png","splashBackgroundColor":"#000000"}}}'
         />
       </head>
