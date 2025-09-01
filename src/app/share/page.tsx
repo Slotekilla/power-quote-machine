@@ -1,47 +1,31 @@
-'use client';
+"use client";
 
-import { useEffect, useState, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from "react";
+import sdk from "@farcaster/miniapp-sdk";
 
-function ShareContent() {
-  const searchParams = useSearchParams();
-  const [quote, setQuote] = useState<string>('');
-  
+export default function SharePage() {
+  const [cast, setCast] = useState<any>(null);
+
   useEffect(() => {
-    const quoteParam = searchParams.get('quote');
-    if (quoteParam) {
-      setQuote(decodeURIComponent(quoteParam));
+    if (sdk.context.location.type === "cast_share") {
+      setCast(sdk.context.location.cast);
     }
-  }, [searchParams]);
+  }, []);
 
-  if (!quote) {
+  if (cast) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center p-4">
-        <p>No quote found. Go back to the <a href="/" className="underline">homepage</a>.</p>
+      <div className="p-4 text-white bg-black min-h-screen">
+        <h1 className="text-xl font-bold">Cast from @{cast.author.username}</h1>
+        <p className="mt-2">{cast.text}</p>
+        <p className="mt-4 text-sm opacity-70">Hash: {cast.hash}</p>
       </div>
     );
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-4">
-      <div className="quote-card">
-        <p className="quote-text">{quote}</p>
-        <p className="signature">Rok Meško</p>
-      </div>
-      
-      <div className="mt-6">
-        <a href="/" className="btn">
-          Get Your Own Quote
-        </a>
-      </div>
+    <div className="p-4 text-white bg-black min-h-screen">
+      <h1 className="text-xl font-bold">Power Quotes</h1>
+      <p>Share a cast here to see it analyzed.</p>
     </div>
-  );
-}
-
-export default function SharePage() {
-  return (
-    <Suspense fallback={<div className="flex min-h-screen items-center justify-center">Loading...</div>}>
-      <ShareContent />
-    </Suspense>
   );
 }
