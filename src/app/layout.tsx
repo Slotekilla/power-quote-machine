@@ -37,18 +37,20 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // točno po shemi
+  // točno po shemi za Farcaster embed
   const fcMiniApp = JSON.stringify({
     version: "1",
     imageUrl: "https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=8",
-    aspectRatio: "3:2",
     button: {
-      title: "Open",
+      title: "Get Inspired",
       action: {
-        type: "launch_miniapp",
-        url: "https://quote.meskobrand.eu/",
-      },
-    },
+        type: "launch_frame",
+        name: "Power Quotes",
+        url: "https://quote.meskobrand.eu",
+        splashImageUrl: "https://quote.meskobrand.eu/splash.png",
+        splashBackgroundColor: "#000000"
+      }
+    }
   });
 
   return (
