@@ -2,54 +2,112 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{ 
-  --bg:#0A0A0A; --bg2:#141414; --gold:#FFD700; --gold-soft:#F5C518; --muted:#888; 
-} 
-*{box-sizing:border-box} 
-html,body{height:100%} 
-body{ 
-  margin:0; color:#eee; font:16px/1.5 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
-  background: radial-gradient(circle at 50% -20%, #1b1b1b 0%, #0a0a0a 60%, #000 100%); 
-} 
-
-.rm-wrap{max-width:980px; margin:48px auto; padding:0 20px} 
-.rm-head{display:flex; align-items:center; gap:16px; margin-bottom:28px} 
-.rm-title{font-size:40px; font-weight:800; color:var(--gold); margin:0} 
-.rm-icon{width:40px; height:40px; object-fit:cover; filter:drop-shadow(0 0 12px rgba(255,215,0,.3)); border-radius:8px} 
-
-.rm-card{ 
-  position:relative; margin:36px auto; padding:72px 64px; 
-  background:linear-gradient(180deg, #0f0f0f 0%, #0a0a0a 100%); 
-  border:1px solid rgba(245,197,24,.25); border-radius:24px; 
-  box-shadow:0 30px 80px rgba(0,0,0,.6), inset 0 0 40px rgba(255,215,0,.05); 
-  max-width:780px; min-height:300px; isolation:isolate; 
-} 
-.rm-card::after{ 
-  content:""; position:absolute; inset:0; border-radius:24px; pointer-events:none; 
-  background: radial-gradient(circle at 30% 20%, rgba(255,215,0,0.03) 0%, transparent 50%), 
-              radial-gradient(circle at 70% 80%, rgba(255,215,0,0.02) 0%, transparent 50%); 
-  mix-blend-mode:soft-light; 
-} 
-
-.rm-quote{margin:0; font-weight:800; font-size:46px; text-align:center; color:var(--gold); letter-spacing: -0.5px} 
-.rm-sign{margin-top:24px; text-align:right; color:var(--gold-soft); font-family: Georgia, "Times New Roman", serif; font-style:italic; font-weight:600} 
-
-.rm-actions{display:flex; gap:16px; justify-content:center; margin:28px 0} 
-.rm-btn{ 
-  background:transparent; color:var(--gold-soft); border:1px solid var(--gold-soft); 
-  padding:12px 18px; border-radius:14px; font-weight:700; letter-spacing:.2px; cursor:pointer; 
-  transition:transform .12s ease, box-shadow .12s ease, background .12s ease, color .12s ease, border-color .12s ease; 
-} 
-.rm-btn:hover{transform:translateY(-1px); box-shadow:0 8px 24px rgba(245,197,24,.15)} 
-.rm-btn--gold{background:linear-gradient(180deg, #FFD700 0%, #E6B800 100%); color:#111; border-color:transparent; box-shadow:0 10px 28px rgba(255,215,0,.25)} 
-.rm-btn--gold:hover{transform:translateY(-2px) scale(1.02); box-shadow:0 14px 32px rgba(255,215,0,.35)} 
-
-.rm-streak{color:var(--muted); text-align:center} 
-.rm-streak span{color:var(--gold-soft); font-weight:700} 
-.rm-foot{margin-top:8px; text-align:center; color:#bbb} 
-
-@media (max-width: 680px){ 
-  .rm-title{font-size:28px} 
-  .rm-card{padding:52px 24px} 
-  .rm-quote{font-size:34px} 
+/* ===== THEME ===== */
+:root{
+  --bg:#0A0A0A; --bg2:#141414; --gold:#FFD700; --gold-soft:#F5C518; --muted:#888;
 }
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:#eee;
+  font:16px/1.5 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(circle at 50% -20%, #1b1b1b 0%, #0a0a0a 60%, #000 100%);
+}
+
+/* ===== MINI APP LAYOUT (compact) =====
+   Omejimo max-širino in uporabimo responsive velikosti,
+   da vse izgleda prav v Warpcast panelu. */
+.miniapp-root,
+.rm-wrap{
+  max-width: 420px;      /* ključna omejitev širine za mini-app panel */
+  width: 100%;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 16px 14px 24px;
+}
+
+/* ===== HEADER ===== */
+.rm-head{display:flex; align-items:center; gap:10px; margin-bottom:18px}
+.rm-icon{width:28px; height:28px; object-fit:cover; filter:drop-shadow(0 0 10px rgba(255,215,0,.25)); border-radius:8px}
+.rm-title{
+  margin:0;
+  color:var(--gold);
+  font-weight:800;
+  letter-spacing:-0.3px;
+  font-size: clamp(16px, 4.4vw, 22px); /* responsive naslov */
+}
+
+/* ===== QUOTE CARD ===== */
+.rm-card{
+  position:relative;
+  margin:18px auto;
+  padding: clamp(16px, 4.5vw, 24px) clamp(14px, 4vw, 20px);
+  background:linear-gradient(180deg, #0f0f0f 0%, #0a0a0a 100%);
+  border:1px solid rgba(245,197,24,.25);
+  border-radius:20px;
+  box-shadow:0 20px 60px rgba(0,0,0,.55), inset 0 0 40px rgba(255,215,0,.05);
+  width:100%;
+}
+.rm-card::after{
+  content:""; position:absolute; inset:0; border-radius:20px; pointer-events:none;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,215,0,0.03) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(255,215,0,0.02) 0%, transparent 50%);
+  mix-blend-mode:soft-light;
+}
+
+/* ===== QUOTE TEXT ===== */
+.rm-quote{
+  margin:0;
+  font-weight:800;
+  color:var(--gold);
+  letter-spacing:-0.4px;
+  text-align:center;
+  font-size: clamp(18px, 5.4vw, 28px);  /* glavna mera */
+  line-height: 1.2;
+}
+.rm-sign{
+  margin-top:10px;
+  text-align:right;
+  color:var(--gold-soft);
+  font-family: Georgia, "Times New Roman", serif;
+  font-style:italic;
+  font-weight:600;
+  font-size: clamp(12px, 3.3vw, 16px);
+}
+
+/* ===== ACTIONS / BUTTONS ===== */
+.rm-actions{display:flex; gap:12px; justify-content:center; margin:18px 0}
+.rm-btn{
+  background:transparent;
+  color:var(--gold-soft);
+  border:1px solid var(--gold-soft);
+  padding: 10px 14px;
+  border-radius:12px;
+  font-weight:700;
+  letter-spacing:.2px;
+  cursor:pointer;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease, color .12s ease, border-color .12s ease;
+}
+.rm-btn:hover{transform:translateY(-1px); box-shadow:0 8px 22px rgba(245,197,24,.15)}
+.rm-btn--gold{
+  background:linear-gradient(180deg, #FFD700 0%, #E6B800 100%);
+  color:#111; border-color:transparent; box-shadow:0 10px 28px rgba(255,215,0,.25)
+}
+.rm-btn--gold:hover{transform:translateY(-2px) scale(1.02); box-shadow:0 14px 32px rgba(255,215,0,.35)}
+
+/* ===== FOOTER ===== */
+.rm-streak{color:var(--muted); text-align:center; font-size: 12px}
+.rm-streak span{color:var(--gold-soft); font-weight:700}
+.rm-foot{margin-top:8px; text-align:center; color:#bbb; font-size:12px}
+
+/* ===== MEDIA TWEAK za ekstra ozke poglede (<=360px) ===== */
+@media (max-width: 360px){
+  .rm-card{ padding: 14px 12px; border-radius:16px; }
+  .rm-actions{ gap:10px; }
+  .rm-btn{ padding: 9px 12px; border-radius:10px; }
+}
+
+/* slike naj se ne raztegujejo */
+img, svg, video, canvas{ max-width:100%; height:auto; }
