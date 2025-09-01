@@ -1,3 +1,24 @@
+<head>
+  {/* Farcaster Mini App meta */}
+  <meta
+    property="fc:miniapp"
+    content='{"version":"1","actions":[{"label":"Open","url":"https://quote.meskobrand.eu"}]}'
+  />
+
+  {/* Open Graph */}
+  <meta property="og:title" content="Rok Meško – Power Quotes" />
+  <meta property="og:description" content="Daily power quotes by Rok Meško. Share your strength." />
+  <meta property="og:url" content="https://quote.meskobrand.eu" />
+  <meta property="og:image" content="https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="800" />
+
+  {/* Twitter fallback */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Rok Meško – Power Quotes" />
+  <meta name="twitter:description" content="Daily power quotes by Rok Meško. Share your strength." />
+  <meta name="twitter:image" content="https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png" />
+</head>
 // src/app/layout.tsx
 import type { Metadata } from "next";
 
