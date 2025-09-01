@@ -36,14 +36,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-  <head>
-  {/* Farcaster Mini App embed config */}
+ <head>
+  {/* Mini App embed (EN SAMA, pravilna verzija) */}
   <meta
     property="fc:miniapp"
-    content='{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png","aspectRatio":"3:2","button":{"title":"Open","action":{"type":"open-url","url":"https://quote.meskobrand.eu"}}}'
+    content='{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png","button":{"title":"Open","action":{"type":"open-url","url":"https://quote.meskobrand.eu"}}}'
   />
 
-  {/* OG/Twitter */}
+  {/* OG/Twitter (ne vpliva na embed valid, a pusti za kartico) */}
   <meta property="og:title" content="Rok Meško — Power Quotes" />
   <meta property="og:description" content="Daily power quotes by Rok Meško. Share your strength." />
   <meta property="og:image" content="https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png" />
