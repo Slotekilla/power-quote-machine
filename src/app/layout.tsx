@@ -36,12 +36,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
- <head>
+<head>
   <meta
-  property="fc:miniapp"
-  content='{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png","actions":[{"label":"Open","url":"https://quote.meskobrand.eu/"}]}'
-/>
+    property="fc:miniapp"
+    content='{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png","button":{"title":"Open","action":{"type":"open-url","url":"https://quote.meskobrand.eu/"}}}'
+  />
 
+  {/* OG/Twitter – pusti, kar že imaš */}
   <meta property="og:title" content="Rok Meško — Power Quotes" />
   <meta property="og:description" content="Daily power quotes by Rok Meško. Share your strength." />
   <meta property="og:image" content="https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png" />
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   <meta property="og:image:height" content="800" />
   <meta name="twitter:card" content="summary_large_image" />
 </head>
+
 
 
 
