@@ -2,112 +2,150 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===== THEME ===== */
+/* ===== THEME / BASE ===== */
 :root{
-  --bg:#0A0A0A; --bg2:#141414; --gold:#FFD700; --gold-soft:#F5C518; --muted:#888;
+  --bg:#0A0A0A; --bg2:#141414; --gold:#FFD700; --gold-soft:#F5C518; --muted:#9aa0a6;
 }
-*{box-sizing:border-box}
-html,body{height:100%}
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
 body{
   margin:0;
   color:#eee;
-  font:16px/1.5 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font:16px/1.5 Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   background: radial-gradient(circle at 50% -20%, #1b1b1b 0%, #0a0a0a 60%, #000 100%);
 }
 
-/* ===== MINI APP LAYOUT (compact) =====
-   Omejimo max-širino in uporabimo responsive velikosti,
-   da vse izgleda prav v Warpcast panelu. */
+/* ===== MINI-APP CANVAS (critical for Warpcast sidebar) ===== */
 .miniapp-root,
-.rm-wrap{
-  max-width: 420px;      /* ključna omejitev širine za mini-app panel */
+.rm-wrap {
+  max-width: 420px;         /* keep the panel compact */
   width: 100%;
   min-height: 100dvh;
   margin: 0 auto;
   padding: 16px 14px 24px;
 }
 
-/* ===== HEADER ===== */
-.rm-head{display:flex; align-items:center; gap:10px; margin-bottom:18px}
-.rm-icon{width:28px; height:28px; object-fit:cover; filter:drop-shadow(0 0 10px rgba(255,215,0,.25)); border-radius:8px}
-.rm-title{
+/* Ensure generic elements inside miniapp inherit correct colors/sizes */
+.miniapp-root h1,
+.rm-wrap h1 { color: var(--gold); font-weight: 800; letter-spacing: -0.3px; }
+.miniapp-root p,
+.rm-wrap p { color: #e9e9e9; }
+
+/* ===== HEADER (covers both old/new markup) ===== */
+.rm-head{ display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+.rm-icon{ width:28px; height:28px; object-fit:cover; border-radius:8px; filter:drop-shadow(0 0 10px rgba(255,215,0,.25)); }
+
+/* any of these will style the title */
+.rm-title,
+h1#title,
+h1.title {
   margin:0;
-  color:var(--gold);
-  font-weight:800;
-  letter-spacing:-0.3px;
-  font-size: clamp(16px, 4.4vw, 22px); /* responsive naslov */
+  color: var(--gold);
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  font-size: clamp(16px, 4.4vw, 22px);
 }
 
-/* ===== QUOTE CARD ===== */
-.rm-card{
-  position:relative;
-  margin:18px auto;
+/* ===== QUOTE CARD (covers both class sets) ===== */
+.rm-card,
+.quote-card {
+  position: relative;
+  margin: 18px auto;
   padding: clamp(16px, 4.5vw, 24px) clamp(14px, 4vw, 20px);
-  background:linear-gradient(180deg, #0f0f0f 0%, #0a0a0a 100%);
-  border:1px solid rgba(245,197,24,.25);
-  border-radius:20px;
-  box-shadow:0 20px 60px rgba(0,0,0,.55), inset 0 0 40px rgba(255,215,0,.05);
-  width:100%;
+  width: 100%;
+  background: linear-gradient(180deg, #0f0f0f 0%, #0a0a0a 100%);
+  border: 1px solid rgba(245,197,24,.25);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.55), inset 0 0 40px rgba(255,215,0,.05);
 }
-.rm-card::after{
+.rm-card::after,
+.quote-card::after{
   content:""; position:absolute; inset:0; border-radius:20px; pointer-events:none;
   background:
     radial-gradient(circle at 30% 20%, rgba(255,215,0,0.03) 0%, transparent 50%),
     radial-gradient(circle at 70% 80%, rgba(255,215,0,0.02) 0%, transparent 50%);
-  mix-blend-mode:soft-light;
+  mix-blend-mode: soft-light;
 }
 
-/* ===== QUOTE TEXT ===== */
-.rm-quote{
-  margin:0;
-  font-weight:800;
-  color:var(--gold);
-  letter-spacing:-0.4px;
-  text-align:center;
-  font-size: clamp(18px, 5.4vw, 28px);  /* glavna mera */
+/* ===== QUOTE TEXT (both names) ===== */
+.rm-quote,
+.quote-text {
+  margin: 0;
+  color: var(--gold);
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  text-align: center;
+  font-size: clamp(18px, 5.4vw, 28px);
   line-height: 1.2;
 }
-.rm-sign{
-  margin-top:10px;
-  text-align:right;
-  color:var(--gold-soft);
+
+/* ===== SIGNATURE (both names) ===== */
+.rm-sign,
+.signature {
+  margin-top: 10px;
+  color: var(--gold-soft);
+  opacity: 0.95;
+  text-align: right;
   font-family: Georgia, "Times New Roman", serif;
-  font-style:italic;
-  font-weight:600;
+  font-style: italic;
+  font-weight: 600;
   font-size: clamp(12px, 3.3vw, 16px);
 }
 
-/* ===== ACTIONS / BUTTONS ===== */
-.rm-actions{display:flex; gap:12px; justify-content:center; margin:18px 0}
-.rm-btn{
-  background:transparent;
-  color:var(--gold-soft);
-  border:1px solid var(--gold-soft);
+/* ===== BUTTONS (style your existing markup) ===== */
+.rm-actions,
+.quote-actions { display:flex; gap:12px; justify-content:center; margin:18px 0; }
+
+/* universal button look inside the app */
+.miniapp-root .btn,
+.rm-wrap .btn,
+.rm-btn,
+.rm-btn--gold,
+.quote-actions button,
+.miniapp-root button {
+  appearance: none;
+  border: 1px solid var(--gold-soft);
+  background: transparent;
+  color: var(--gold-soft);
   padding: 10px 14px;
-  border-radius:12px;
-  font-weight:700;
-  letter-spacing:.2px;
-  cursor:pointer;
+  border-radius: 12px;
+  font-weight: 700;
+  letter-spacing: .2px;
+  cursor: pointer;
   transition: transform .12s ease, box-shadow .12s ease, background .12s ease, color .12s ease, border-color .12s ease;
 }
-.rm-btn:hover{transform:translateY(-1px); box-shadow:0 8px 22px rgba(245,197,24,.15)}
-.rm-btn--gold{
-  background:linear-gradient(180deg, #FFD700 0%, #E6B800 100%);
-  color:#111; border-color:transparent; box-shadow:0 10px 28px rgba(255,215,0,.25)
+.miniapp-root .btn:focus,
+.rm-wrap .btn:focus,
+.rm-btn:focus,
+.quote-actions button:focus,
+.miniapp-root button:focus { outline: none; }
+
+.rm-btn--gold,
+.miniapp-root .btn-primary,
+.quote-actions .btn-primary {
+  background: linear-gradient(180deg, #FFD700 0%, #E6B800 100%);
+  color: #111;
+  border-color: transparent;
+  box-shadow: 0 10px 28px rgba(255,215,0,.25);
 }
-.rm-btn--gold:hover{transform:translateY(-2px) scale(1.02); box-shadow:0 14px 32px rgba(255,215,0,.35)}
+.rm-btn:hover,
+.miniapp-root .btn:hover,
+.quote-actions button:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(245,197,24,.15); }
+.rm-btn--gold:hover,
+.miniapp-root .btn-primary:hover,
+.quote-actions .btn-primary:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 14px 32px rgba(255,215,0,.35); }
 
-/* ===== FOOTER ===== */
-.rm-streak{color:var(--muted); text-align:center; font-size: 12px}
-.rm-streak span{color:var(--gold-soft); font-weight:700}
-.rm-foot{margin-top:8px; text-align:center; color:#bbb; font-size:12px}
+/* ===== FOOTER / META ===== */
+.rm-streak{ color: var(--muted); text-align:center; font-size:12px; }
+.rm-streak span{ color: var(--gold-soft); font-weight:700; }
+.rm-foot{ margin-top:8px; text-align:center; color:#bbb; font-size:12px; }
 
-/* ===== MEDIA TWEAK za ekstra ozke poglede (<=360px) ===== */
+/* ===== SAFETY: media tweak for <=360px ===== */
 @media (max-width: 360px){
-  .rm-card{ padding: 14px 12px; border-radius:16px; }
-  .rm-actions{ gap:10px; }
-  .rm-btn{ padding: 9px 12px; border-radius:10px; }
+  .rm-card, .quote-card { padding: 14px 12px; border-radius: 16px; }
+  .rm-actions, .quote-actions { gap: 10px; }
+  .miniapp-root .btn, .rm-btn, .quote-actions button { padding: 9px 12px; border-radius: 10px; }
 }
 
-/* slike naj se ne raztegujejo */
-img, svg, video, canvas{ max-width:100%; height:auto; }
+/* Assets never overflow */
+img, svg, video, canvas { max-width: 100%; height: auto; }
