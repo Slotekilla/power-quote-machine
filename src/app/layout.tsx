@@ -38,9 +38,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
  <head>
   <meta
-    property="fc:miniapp"
-    content='{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png","button":{"title":"Open","action":{"type":"open-url","url":"https://quote.meskobrand.eu/"}}}'
-  />
+  property="fc:miniapp"
+  content='{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png","actions":[{"label":"Open","url":"https://quote.meskobrand.eu/"}]}'
+/>
 
   <meta property="og:title" content="Rok Meško — Power Quotes" />
   <meta property="og:description" content="Daily power quotes by Rok Meško. Share your strength." />
