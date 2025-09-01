@@ -47,15 +47,15 @@ export async function generateMetadata(): Promise<Metadata> {
       images: ["https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=8"],
     },
     icons: {
-      shortcut: "/favicon.ico",
+      shortcut: "/splash.png",
       icon: [
+        { url: "/splash.png", sizes: "512x512", type: "image/png" },
         { url: "/favicon.ico", sizes: "32x32" },
-        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/svg+xml" },
-        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/svg+xml" },
-        { url: "/icon-1024.png", sizes: "1024x1024", type: "image/png" },
+        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       ],
       apple: [
-        { url: "/icon-1024.png", sizes: "1024x1024", type: "image/png" },
+        { url: "/splash.png", sizes: "512x512", type: "image/png" },
       ],
     },
   };
