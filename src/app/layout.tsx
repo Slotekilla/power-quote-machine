@@ -34,34 +34,27 @@ export const metadata: Metadata = {
       { url: "/icon-1024.png", sizes: "1024x1024", type: "image/png" },
     ],
   },
+  other: {
+    "fc:miniapp": JSON.stringify({
+      version: "1",
+      imageUrl: "https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=8",
+      button: {
+        title: "Get Inspired",
+        action: {
+          type: "launch_frame",
+          name: "Power Quotes",
+          url: "https://quote.meskobrand.eu",
+          splashImageUrl: "https://quote.meskobrand.eu/splash.png",
+          splashBackgroundColor: "#000000"
+        }
+      }
+    })
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // točno po shemi za Farcaster embed
-  const fcMiniApp = JSON.stringify({
-    version: "1",
-    imageUrl: "https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=8",
-    button: {
-      title: "Get Inspired",
-      action: {
-        type: "launch_frame",
-        name: "Power Quotes",
-        url: "https://quote.meskobrand.eu",
-        splashImageUrl: "https://quote.meskobrand.eu/splash.png",
-        splashBackgroundColor: "#000000"
-      }
-    }
-  });
-
   return (
     <html lang="en">
-      <head>
-        {/* Farcaster Mini App embed */}
-        <meta property="fc:miniapp" content={fcMiniApp} />
-        <meta name="fc:miniapp" content={fcMiniApp} />
-
-        <meta name="twitter:card" content="summary_large_image" />
-      </head>
       <body>
         <MiniAppInit />
         <div className="rm-wrap">{children}</div>
