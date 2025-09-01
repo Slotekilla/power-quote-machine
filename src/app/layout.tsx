@@ -46,7 +46,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
  "aspectRatio":"3:2",
     "button":{
         "title":"Open",
-        "action":{"type":"open-url","url":"https://quote.meskobrand.eu"}
+        "action":{
+          "type":"open-url",
+          "url":"https://quote.meskobrand.eu"
       }
     }'
   />
