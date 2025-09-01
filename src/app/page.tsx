@@ -2,10 +2,6 @@
 
 import { useCallback, useState } from 'react';
 
-/**
- * Preprost seznam citatov za demo. Če imaš že svojo logiko/vir,
- * samo zamenjaj QUOTES in handleNextQuote logiko.
- */
 const QUOTES = [
   'Silence builds empires.',
   'No loyalty without leverage.',
@@ -22,13 +18,12 @@ export default function HomePage() {
   }, []);
 
   const handleShare = useCallback(() => {
-    // Mini-app share: odpri /share z query parametrom quote
     const url = `/share?quote=${encodeURIComponent(quote)}`;
     window.location.href = url;
   }, [quote]);
 
   return (
-    <div className="rm-wrap">
+    <>
       <header className="rm-head">
         <img className="rm-icon" src="/icon-1024.svg" alt="RM" />
         <h1 id="title" className="rm-title">Rok Meško — Power Quotes</h1>
@@ -48,12 +43,8 @@ export default function HomePage() {
         </button>
       </div>
 
-      <p className="rm-streak">
-        Streak: <span>0/5</span> days to unlock Alpha Pack
-      </p>
-      <p className="rm-foot">
-        Daily power quotes by Rok Meško. Share your strength.
-      </p>
-    </div>
+      <p className="rm-streak">Streak: <span>0/5</span> days to unlock Alpha Pack</p>
+      <p className="rm-foot">Daily power quotes by Rok Meško. Share your strength.</p>
+    </>
   );
 }
