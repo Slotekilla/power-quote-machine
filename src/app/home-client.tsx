@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import QuoteCard from '@/components/QuoteCard';
 import { Quote, getRandomQuote } from '@/data/quotes';
+import { sdk } from '@farcaster/miniapp-sdk';
 
 export default function HomeClient() {
   const [sharedQuote, setSharedQuote] = useState<Quote | null>(null);
@@ -17,6 +18,11 @@ export default function HomeClient() {
         id: 0,
         text: decodeURIComponent(quoteParam)
       });
+    }
+    
+    // Initialize Farcaster SDK and signal ready
+    if (typeof window !== 'undefined') {
+      sdk.actions.ready();
     }
   }, [searchParams]);
 
@@ -55,13 +61,13 @@ export default function HomeClient() {
     <div className="rm-wrap">
       <header className="rm-head">
         <img className="rm-icon" src="/icon-1024.svg" alt="RM" />
-        <h1 id="title" className="rm-title">Rok Meško — Power Quotes</h1>
+        <h1 id="title" className="rm-title">Power Quotes</h1>
       </header>
       
       <QuoteCard onShare={handleShare} />
       
       <footer id="footer" className="rm-foot">
-        Daily power quotes by Rok Meško. Share your strength.
+        by Rok Meško
       </footer>
     </div>
   );

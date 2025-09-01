@@ -19,16 +19,19 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Power Quotes",
   },
-  // barva za embed in odtenek na splashu
   themeColor: "#000000",
-  // fallback favicons, če jih potrebuje
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "32x32", type: "image/svg+xml" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/svg+xml" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/svg+xml" },
+      { url: "/icon-1024.png", sizes: "1024x1024", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
       { url: "/icon-1024.png", sizes: "1024x1024", type: "image/png" },
     ],
   },
-  // Next Metadata včasih doda <meta name="...">.
-  // Mini Apps včasih zahtevajo PROPERTY. Spodaj dodamo oboje (glej <head>).
 };
 
 // ⚠️ Poleg Metadata eksplicitno dodamo <meta> z "property" in "name".
@@ -36,24 +39,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-<head>
-  <meta
-    property="fc:miniapp"
-    content='{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png","button":{"title":"Open","action":{"type":"launch_frame","name":"Rok Meško - Power Quotes","url":"https://quote.meskobrand.eu/"}}}'
-  />
-
-  {/* OG/Twitter – pusti, kar že imaš */}
-  <meta property="og:title" content="Rok Meško — Power Quotes" />
-  <meta property="og:description" content="Daily power quotes by Rok Meško. Share your strength." />
-  <meta property="og:image" content="https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="800" />
-  <meta name="twitter:card" content="summary_large_image" />
-</head>
-
-
-
-
+      <head>
+        <meta
+          property="fc:miniapp"
+          content='{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png","button":{"title":"Get Inspired","action":{"type":"launch_frame","name":"Power Quotes","url":"https://quote.meskobrand.eu","splashImageUrl":"https://quote.meskobrand.eu/splash.png","splashBackgroundColor":"#000000"}}}'
+        />
+      </head>
       <body>{children}</body>
     </html>
   );
