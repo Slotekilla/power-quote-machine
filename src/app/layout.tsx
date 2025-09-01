@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
-import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -69,40 +68,8 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const miniappContent = JSON.stringify({
-    version: "1",
-    imageUrl: "https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=8",
-    button: {
-      title: "Get Inspired",
-      action: {
-        type: "launch_miniapp",
-        name: "Power Quotes",
-        url: "https://quote.meskobrand.eu",
-      },
-    },
-  });
-
-  const frameContent = JSON.stringify({
-    version: "1",
-    imageUrl: "https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png?v=8",
-    button: {
-      title: "Get Inspired",
-      action: {
-        type: "launch_miniapp",
-        name: "Power Quotes",
-        url: "https://quote.meskobrand.eu",
-      },
-    },
-  });
-
   return (
     <html lang="en">
-      <Head>
-        <meta property="fc:miniapp" content={miniappContent} />
-        <meta name="fc:miniapp" content={miniappContent} />
-        <meta property="fc:frame" content={frameContent} />
-        <meta name="fc:frame" content={frameContent} />
-      </Head>
       <body className={inter.className}>
         {children}
         <Analytics />
