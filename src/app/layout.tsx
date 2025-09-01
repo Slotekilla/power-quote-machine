@@ -51,7 +51,7 @@ export async function generateMetadata(): Promise<Metadata> {
       shortcut: "/splash.png",
       icon: [
         { url: "/splash.png", sizes: "512x512", type: "image/png" },
-        { url: "/favicon.ico", sizes: "32x32" },
+        { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
         { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
         { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       ],
