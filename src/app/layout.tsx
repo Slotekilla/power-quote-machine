@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Farcaster embed meta (velja za share/preview, ne riše nič na strani) */}
+        {/* Farcaster Mini App EMBED (mora biti tukaj, exactly JSON in quotes) */}
         <meta
           property="fc:miniapp"
           content='{"version":"1","imageUrl":"https://quote.meskobrand.eu/rok-mesko-share-card-1200x800.png","button":{"title":"Open","action":{"type":"open-url","url":"https://quote.meskobrand.eu/"}}}'
@@ -37,10 +37,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="twitter:card" content="summary_large_image" />
       </head>
       <body>
-        {/* skrije splash v Warpcastu */}
+        {/* skrij splash v Warpcastu */}
         <MiniAppInit />
-
-        {/* >>> Zelo pomembno: wrapper, ki omeji širino v panelu <<< */}
+        {/* compact column za mini-app panel */}
         <div className="miniapp-root">{children}</div>
       </body>
     </html>
